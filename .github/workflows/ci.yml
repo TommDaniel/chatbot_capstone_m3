@@ -1,0 +1,98 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      DEEPSEEK_API_KEY: ""
+      DATABASE_URL: postgresql://fluxsus_app:fluxsus_local_app_2026@127.0.0.1:55432/fluxsus
+      MIGRATION_DATABASE_URL: postgresql://fluxsus_owner:fluxsus_local_owner_2026@127.0.0.1:55432/fluxsus
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Prepare keyless local configuration and fresh test evidence
+        run: |
+          cp .env.example .env
+          rm -f output/unit-tests.json output/integration-tests.json output/e2e-results.json output/screenshots/*.png
+
+      - name: Type check
+        run: npm run check
+
+      - name: Unit tests
+        run: npm test -- --reporter=json --outputFile=output/unit-tests.json
+
+      - name: Start PostgreSQL
+        run: docker compose up -d --wait --wait-timeout 120 db
+
+      - name: Prepare database
+        run: npm run db:setup
+
+      - name: Index synthetic corpus
+        run: npm run index
+
+      - name: Integration tests
+        run: npm run test:integration -- --reporter=json --outputFile=output/integration-tests.json
+
+      - name: Build application
+        run: npm run build
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Start application and run E2E
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          npm start > "$RUNNER_TEMP/fluxsus-api.log" 2>&1 &
+          app_pid=$!
+          trap 'kill "$app_pid" 2>/dev/null || true; wait "$app_pid" 2>/dev/null || true; cat "$RUNNER_TEMP/fluxsus-api.log"' EXIT
+
+          for attempt in $(seq 1 60); do
+            if curl --fail --silent http://127.0.0.1:3001/api/health > /dev/null; then
+              echo "Application health check passed."
+              break
+            fi
+            if ! kill -0 "$app_pid" 2>/dev/null; then
+              cat "$RUNNER_TEMP/fluxsus-api.log"
+              exit 1
+            fi
+            sleep 2
+          done
+
+          curl --fail --silent --show-error http://127.0.0.1:3001/api/health > /dev/null
+          npm run test:e2e
+
+      - name: Upload JSON results and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-evidencias
+          if-no-files-found: warn
+          path: |
+            output/unit-tests.json
+            output/integration-tests.json
+            output/e2e-results.json
+            output/screenshots/*.png
+
+      - name: Stop PostgreSQL
+        if: always()
+        run: docker compose down --volumes --remove-orphans

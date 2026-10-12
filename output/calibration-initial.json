@@ -1,0 +1,570 @@
+{
+  "createdAt": "2026-10-12T17:49:13.517Z",
+  "mode": "offline",
+  "method": "document-id micro F1; exact lookup included; negative/ambiguous routed without retrieval",
+  "selectedThreshold": 0.9,
+  "results": [
+    {
+      "threshold": 0.9,
+      "tp": 5,
+      "fp": 0,
+      "fn": 3,
+      "precision": 1,
+      "recall": 0.625,
+      "f1": 0.7692307692307693,
+      "questions": [
+        {
+          "id": "cal-01",
+          "expected": [
+            "owasp-authentication"
+          ],
+          "retrieved": [],
+          "similarities": []
+        },
+        {
+          "id": "cal-02",
+          "expected": [
+            "manual-conta"
+          ],
+          "retrieved": [
+            "manual-conta"
+          ],
+          "similarities": [
+            0.9134157248387189
+          ]
+        },
+        {
+          "id": "cal-03",
+          "expected": [
+            "manual-acessos"
+          ],
+          "retrieved": [
+            "manual-acessos"
+          ],
+          "similarities": [
+            0.9179723536364276
+          ]
+        },
+        {
+          "id": "cal-04",
+          "expected": [
+            "owasp-authorization"
+          ],
+          "retrieved": [],
+          "similarities": []
+        },
+        {
+          "id": "cal-05",
+          "expected": [
+            "owasp-session-management"
+          ],
+          "retrieved": [],
+          "similarities": []
+        },
+        {
+          "id": "cal-06",
+          "expected": [
+            "ticket:2233"
+          ],
+          "retrieved": [
+            "ticket:2233"
+          ],
+          "similarities": [
+            null
+          ]
+        },
+        {
+          "id": "cal-07",
+          "expected": [
+            "ticket:2234"
+          ],
+          "retrieved": [
+            "ticket:2234"
+          ],
+          "similarities": [
+            null
+          ]
+        },
+        {
+          "id": "cal-08",
+          "expected": [
+            "manual-conta"
+          ],
+          "retrieved": [
+            "manual-conta"
+          ],
+          "similarities": [
+            0.9029463720694093
+          ]
+        },
+        {
+          "id": "cal-09",
+          "expected": [],
+          "retrieved": [],
+          "similarities": []
+        },
+        {
+          "id": "cal-10",
+          "expected": [],
+          "retrieved": [],
+          "similarities": []
+        }
+      ]
+    },
+    {
+      "threshold": 0.85,
+      "tp": 8,
+      "fp": 10,
+      "fn": 0,
+      "precision": 0.4444444444444444,
+      "recall": 1,
+      "f1": 0.6153846153846153,
+      "questions": [
+        {
+          "id": "cal-01",
+          "expected": [
+            "owasp-authentication"
+          ],
+          "retrieved": [
+            "owasp-session-management",
+            "owasp-authorization",
+            "owasp-authentication"
+          ],
+          "similarities": [
+            0.8766503628133863,
+            0.8747036867108722,
+            0.873595968056212
+          ]
+        },
+        {
+          "id": "cal-02",
+          "expected": [
+            "manual-conta"
+          ],
+          "retrieved": [
+            "manual-conta",
+            "manual-tickets"
+          ],
+          "similarities": [
+            0.9134157248387189,
+            0.8704045028700329,
+            0.8608810056831389,
+            0.8574111291660286,
+            0.8545061945915222
+          ]
+        },
+        {
+          "id": "cal-03",
+          "expected": [
+            "manual-acessos"
+          ],
+          "retrieved": [
+            "manual-acessos",
+            "manual-tickets"
+          ],
+          "similarities": [
+            0.9179723536364276,
+            0.8902267479355936,
+            0.8777884768121916,
+            0.8731788841699782,
+            0.8727502486929686
+          ]
+        },
+        {
+          "id": "cal-04",
+          "expected": [
+            "owasp-authorization"
+          ],
+          "retrieved": [
+            "owasp-authentication",
+            "owasp-authorization",
+            "owasp-session-management"
+          ],
+          "similarities": [
+            0.8801170587539673,
+            0.8796466255082679,
+            0.8627476855817278
+          ]
+        },
+        {
+          "id": "cal-05",
+          "expected": [
+            "owasp-session-management"
+          ],
+          "retrieved": [
+            "owasp-session-management",
+            "owasp-authentication",
+            "owasp-authorization"
+          ],
+          "similarities": [
+            0.8935284741487002,
+            0.8795827031135559,
+            0.8794162535493454
+          ]
+        },
+        {
+          "id": "cal-06",
+          "expected": [
+            "ticket:2233"
+          ],
+          "retrieved": [
+            "ticket:2233"
+          ],
+          "similarities": [
+            null
+          ]
+        },
+        {
+          "id": "cal-07",
+          "expected": [
+            "ticket:2234"
+          ],
+          "retrieved": [
+            "ticket:2234"
+          ],
+          "similarities": [
+            null
+          ]
+        },
+        {
+          "id": "cal-08",
+          "expected": [
+            "manual-conta"
+          ],
+          "retrieved": [
+            "manual-conta",
+            "manual-acessos",
+            "manual-tickets"
+          ],
+          "similarities": [
+            0.9029463720694093,
+            0.8928509759040447,
+            0.8585935493930696,
+            0.8579679219608088,
+            0.8568420494857538
+          ]
+        },
+        {
+          "id": "cal-09",
+          "expected": [],
+          "retrieved": [],
+          "similarities": []
+        },
+        {
+          "id": "cal-10",
+          "expected": [],
+          "retrieved": [],
+          "similarities": []
+        }
+      ]
+    },
+    {
+      "threshold": 0.8,
+      "tp": 8,
+      "fp": 11,
+      "fn": 0,
+      "precision": 0.42105263157894735,
+      "recall": 1,
+      "f1": 0.5925925925925926,
+      "questions": [
+        {
+          "id": "cal-01",
+          "expected": [
+            "owasp-authentication"
+          ],
+          "retrieved": [
+            "owasp-session-management",
+            "owasp-authorization",
+            "owasp-authentication",
+            "manual-conta"
+          ],
+          "similarities": [
+            0.8766503628133863,
+            0.8747036867108722,
+            0.873595968056212,
+            0.838271925552386,
+            0.8343343932230063
+          ]
+        },
+        {
+          "id": "cal-02",
+          "expected": [
+            "manual-conta"
+          ],
+          "retrieved": [
+            "manual-conta",
+            "manual-tickets"
+          ],
+          "similarities": [
+            0.9134157248387189,
+            0.8704045028700329,
+            0.8608810056831389,
+            0.8574111291660286,
+            0.8545061945915222
+          ]
+        },
+        {
+          "id": "cal-03",
+          "expected": [
+            "manual-acessos"
+          ],
+          "retrieved": [
+            "manual-acessos",
+            "manual-tickets"
+          ],
+          "similarities": [
+            0.9179723536364276,
+            0.8902267479355936,
+            0.8777884768121916,
+            0.8731788841699782,
+            0.8727502486929686
+          ]
+        },
+        {
+          "id": "cal-04",
+          "expected": [
+            "owasp-authorization"
+          ],
+          "retrieved": [
+            "owasp-authentication",
+            "owasp-authorization",
+            "owasp-session-management"
+          ],
+          "similarities": [
+            0.8801170587539673,
+            0.8796466255082679,
+            0.8627476855817278,
+            0.842456798846346,
+            0.8226499942123942
+          ]
+        },
+        {
+          "id": "cal-05",
+          "expected": [
+            "owasp-session-management"
+          ],
+          "retrieved": [
+            "owasp-session-management",
+            "owasp-authentication",
+            "owasp-authorization"
+          ],
+          "similarities": [
+            0.8935284741487002,
+            0.8795827031135559,
+            0.8794162535493454,
+            0.8420767188072205,
+            0.8382769630285517
+          ]
+        },
+        {
+          "id": "cal-06",
+          "expected": [
+            "ticket:2233"
+          ],
+          "retrieved": [
+            "ticket:2233"
+          ],
+          "similarities": [
+            null
+          ]
+        },
+        {
+          "id": "cal-07",
+          "expected": [
+            "ticket:2234"
+          ],
+          "retrieved": [
+            "ticket:2234"
+          ],
+          "similarities": [
+            null
+          ]
+        },
+        {
+          "id": "cal-08",
+          "expected": [
+            "manual-conta"
+          ],
+          "retrieved": [
+            "manual-conta",
+            "manual-acessos",
+            "manual-tickets"
+          ],
+          "similarities": [
+            0.9029463720694093,
+            0.8928509759040447,
+            0.8585935493930696,
+            0.8579679219608088,
+            0.8568420494857538
+          ]
+        },
+        {
+          "id": "cal-09",
+          "expected": [],
+          "retrieved": [],
+          "similarities": []
+        },
+        {
+          "id": "cal-10",
+          "expected": [],
+          "retrieved": [],
+          "similarities": []
+        }
+      ]
+    },
+    {
+      "threshold": 0.75,
+      "tp": 8,
+      "fp": 11,
+      "fn": 0,
+      "precision": 0.42105263157894735,
+      "recall": 1,
+      "f1": 0.5925925925925926,
+      "questions": [
+        {
+          "id": "cal-01",
+          "expected": [
+            "owasp-authentication"
+          ],
+          "retrieved": [
+            "owasp-session-management",
+            "owasp-authorization",
+            "owasp-authentication",
+            "manual-conta"
+          ],
+          "similarities": [
+            0.8766503628133863,
+            0.8747036867108722,
+            0.873595968056212,
+            0.838271925552386,
+            0.8343343932230063
+          ]
+        },
+        {
+          "id": "cal-02",
+          "expected": [
+            "manual-conta"
+          ],
+          "retrieved": [
+            "manual-conta",
+            "manual-tickets"
+          ],
+          "similarities": [
+            0.9134157248387189,
+            0.8704045028700329,
+            0.8608810056831389,
+            0.8574111291660286,
+            0.8545061945915222
+          ]
+        },
+        {
+          "id": "cal-03",
+          "expected": [
+            "manual-acessos"
+          ],
+          "retrieved": [
+            "manual-acessos",
+            "manual-tickets"
+          ],
+          "similarities": [
+            0.9179723536364276,
+            0.8902267479355936,
+            0.8777884768121916,
+            0.8731788841699782,
+            0.8727502486929686
+          ]
+        },
+        {
+          "id": "cal-04",
+          "expected": [
+            "owasp-authorization"
+          ],
+          "retrieved": [
+            "owasp-authentication",
+            "owasp-authorization",
+            "owasp-session-management"
+          ],
+          "similarities": [
+            0.8801170587539673,
+            0.8796466255082679,
+            0.8627476855817278,
+            0.842456798846346,
+            0.8226499942123942
+          ]
+        },
+        {
+          "id": "cal-05",
+          "expected": [
+            "owasp-session-management"
+          ],
+          "retrieved": [
+            "owasp-session-management",
+            "owasp-authentication",
+            "owasp-authorization"
+          ],
+          "similarities": [
+            0.8935284741487002,
+            0.8795827031135559,
+            0.8794162535493454,
+            0.8420767188072205,
+            0.8382769630285517
+          ]
+        },
+        {
+          "id": "cal-06",
+          "expected": [
+            "ticket:2233"
+          ],
+          "retrieved": [
+            "ticket:2233"
+          ],
+          "similarities": [
+            null
+          ]
+        },
+        {
+          "id": "cal-07",
+          "expected": [
+            "ticket:2234"
+          ],
+          "retrieved": [
+            "ticket:2234"
+          ],
+          "similarities": [
+            null
+          ]
+        },
+        {
+          "id": "cal-08",
+          "expected": [
+            "manual-conta"
+          ],
+          "retrieved": [
+            "manual-conta",
+            "manual-acessos",
+            "manual-tickets"
+          ],
+          "similarities": [
+            0.9029463720694093,
+            0.8928509759040447,
+            0.8585935493930696,
+            0.8579679219608088,
+            0.8568420494857538
+          ]
+        },
+        {
+          "id": "cal-09",
+          "expected": [],
+          "retrieved": [],
+          "similarities": []
+        },
+        {
+          "id": "cal-10",
+          "expected": [],
+          "retrieved": [],
+          "similarities": []
+        }
+      ]
+    }
+  ]
+}

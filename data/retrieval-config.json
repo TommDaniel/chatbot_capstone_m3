@@ -1,0 +1,1 @@
+{"minSimilarity":0.85,"calibratedAt":"2026-10-12","calibrationArtifact":"output/calibration.json","embeddingModel":"Xenova/multilingual-e5-small","embeddingDimensions":384,"topK":5,"chunkTokens":320,"overlapTokens":48,"rrfConstant":60,"notes":"Threshold frozen before initial live evaluation. Ingestion correction after eval-08 does not retune threshold."}

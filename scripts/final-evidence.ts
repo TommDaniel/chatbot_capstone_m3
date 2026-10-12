@@ -1,0 +1,10 @@
+import {mkdir,readFile,writeFile} from 'node:fs/promises';
+import {ownerPool,closePools} from '../server/db.js';
+import {createHash} from 'node:crypto';
+const counts=(await ownerPool.query('SELECT (SELECT count(*) FROM users)::int users,(SELECT count(*) FROM tickets)::int tickets,(SELECT count(*) FROM documents)::int documents,(SELECT count(*) FROM chunks)::int chunks')).rows[0];
+const usage=(await ownerPool.query('SELECT count(*)::int calls,coalesce(sum(input_tokens),0)::int input_tokens,coalesce(sum(output_tokens),0)::int output_tokens,coalesce(sum(coalesce(actual_cost,reserved_cost)),0)::float estimated_cost_upper_usd FROM llm_usage')).rows[0];
+const statuses=(await ownerPool.query('SELECT status,count(*)::int count FROM llm_usage GROUP BY status')).rows;
+const originalHash=createHash('sha256').update(await readFile('../coders-university-pos-ia-m3-main.zip.zip')).digest('hex');
+const lockHash=createHash('sha256').update(await readFile('package-lock.json')).digest('hex');
+await mkdir('output',{recursive:true});await writeFile('output/run-summary.json',JSON.stringify({createdAt:new Date().toISOString(),prototype:true,allDataSynthetic:true,counts,usage,statuses,originalZipSha256:originalHash,packageLockSha256:lockHash,notes:'Ledger is aggregate of original study and two regression replays. Estimated cost at peak rates, not billing receipt. No provider calls from deterministic API/E2E checks.'},null,2));
+console.log(JSON.stringify({counts,usage,statuses}));await closePools();

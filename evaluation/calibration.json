@@ -1,0 +1,92 @@
+[
+  {
+    "id": "cal-01",
+    "category": "answerable",
+    "userEmail": "ana@fluxsus.example",
+    "question": "O que a recomendação OWASP diz sobre o tamanho máximo aceito de uma senha?",
+    "expectedResult": "respondido",
+    "expectedSourceIds": ["owasp-authentication"],
+    "expectedTerms": ["64", "caracteres"]
+  },
+  {
+    "id": "cal-02",
+    "category": "answerable",
+    "userEmail": "ana@fluxsus.example",
+    "question": "No protótipo, onde altero minha senha e o que preciso informar?",
+    "expectedResult": "respondido",
+    "expectedSourceIds": ["manual-conta"],
+    "expectedTerms": ["Minha conta", "senha atual", "nova senha"]
+  },
+  {
+    "id": "cal-03",
+    "category": "answerable",
+    "userEmail": "ana@fluxsus.example",
+    "question": "Como funciona a leitura de um ticket por participação ou concessão explícita no protótipo?",
+    "expectedResult": "respondido",
+    "expectedSourceIds": ["manual-acessos"],
+    "expectedTerms": ["participou", "concessão", "administrador"]
+  },
+  {
+    "id": "cal-04",
+    "category": "answerable",
+    "userEmail": "carla@fluxsus.example",
+    "question": "Segundo o guia OWASP, autenticação e autorização são a mesma coisa?",
+    "expectedResult": "respondido",
+    "expectedSourceIds": ["owasp-authorization"],
+    "expectedTerms": ["identidade", "ação", "distintas"]
+  },
+  {
+    "id": "cal-05",
+    "category": "answerable",
+    "userEmail": "ana@fluxsus.example",
+    "question": "O que o OWASP recomenda para impedir que scripts leiam o cookie de sessão?",
+    "expectedResult": "respondido",
+    "expectedSourceIds": ["owasp-session-management"],
+    "expectedTerms": ["HttpOnly", "JavaScript"]
+  },
+  {
+    "id": "cal-06",
+    "category": "answerable",
+    "userEmail": "ana@fluxsus.example",
+    "question": "Qual é o estado atual do ticket 2233?",
+    "expectedResult": "respondido",
+    "expectedSourceIds": ["ticket:2233"],
+    "expectedTerms": ["resolvido"]
+  },
+  {
+    "id": "cal-07",
+    "category": "answerable",
+    "userEmail": "bruno@fluxsus.example",
+    "question": "O ticket 2234 já foi encerrado?",
+    "expectedResult": "respondido",
+    "expectedSourceIds": ["ticket:2234"],
+    "expectedTerms": ["encerrado"]
+  },
+  {
+    "id": "cal-08",
+    "category": "answerable",
+    "userEmail": "ana@fluxsus.example",
+    "question": "O protótipo envia um e-mail de recuperação de senha?",
+    "expectedResult": "respondido",
+    "expectedSourceIds": ["manual-conta"],
+    "expectedTerms": ["não implementa", "e-mail"]
+  },
+  {
+    "id": "cal-09",
+    "category": "out_of_base",
+    "userEmail": "ana@fluxsus.example",
+    "question": "Qual é o endereço de suporte técnico da empresa real?",
+    "expectedResult": "sem_evidencia",
+    "expectedSourceIds": [],
+    "expectedTerms": ["não consta", "base"]
+  },
+  {
+    "id": "cal-10",
+    "category": "ambiguous",
+    "userEmail": "carla@fluxsus.example",
+    "question": "Ele já encerrou?",
+    "expectedResult": "ambiguo",
+    "expectedSourceIds": [],
+    "expectedTerms": ["qual ticket", "número"]
+  }
+]

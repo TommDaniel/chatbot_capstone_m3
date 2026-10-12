@@ -1,0 +1,36 @@
+services:
+  db:
+    image: pgvector/pgvector:0.8.7-pg17-bookworm
+    environment:
+      POSTGRES_USER: fluxsus_owner
+      POSTGRES_PASSWORD: fluxsus_local_owner_2026
+      POSTGRES_DB: fluxsus
+    ports: ["127.0.0.1:55432:5432"]
+    volumes: ["fluxsus-db:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fluxsus_owner -d fluxsus"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  app:
+    build: .
+    profiles: ["app"]
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://fluxsus_app:fluxsus_local_app_2026@db:5432/fluxsus
+      MIGRATION_DATABASE_URL: postgresql://fluxsus_owner:fluxsus_local_owner_2026@db:5432/fluxsus
+      HOST: 0.0.0.0
+      PORT: 3001
+      EMBEDDING_CACHE: /app/.cache/models
+    ports: ["127.0.0.1:3001:3001"]
+    volumes: ["fluxsus-models:/app/.cache/models"]
+    depends_on:
+      db: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3001/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      start_period: 120s
+volumes:
+  fluxsus-db:
+  fluxsus-models:

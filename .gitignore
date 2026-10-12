@@ -1,0 +1,13 @@
+node_modules/
+.env
+.env.*
+!.env.example
+dist/
+.cache/
+tmp/
+test-results/
+playwright-report/
+output/*.zip
+output/submission-manifest.json
+__pycache__/
+*.pyc

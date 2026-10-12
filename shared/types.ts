@@ -1,0 +1,9 @@
+export const roles = ['solicitante','operador','supervisor','administrador'] as const;
+export type Role = typeof roles[number];
+export const statuses = ['aberto','em_andamento','aguardando','resolvido','encerrado'] as const;
+export type Status = typeof statuses[number];
+export type User = {id:string;name:string;email:string;role:Role};
+export type Ticket = {id:number;title:string;description:string;category:string;priority:string;status:Status;version:number;createdAt:string;updatedAt:string};
+export type Source = {id:string;title:string;kind:'manual'|'publico'|'ticket';ticketId?:number;version?:number;excerpt:string;url?:string;documentId?:string;score?:number};
+export type Result = 'respondido'|'ambiguo'|'sem_evidencia'|'indisponivel';
+export type ChatResponse = {conversationId:string;messageId:string;answer:string;result:Result;sources:Source[];requestId:string};

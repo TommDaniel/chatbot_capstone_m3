@@ -1,0 +1,26 @@
+{
+  "createdAt": "2026-10-12T18:37:53.981Z",
+  "prototype": true,
+  "allDataSynthetic": true,
+  "counts": {
+    "users": 8,
+    "tickets": 24,
+    "documents": 6,
+    "chunks": 130
+  },
+  "usage": {
+    "calls": 47,
+    "input_tokens": 24954,
+    "output_tokens": 2939,
+    "estimated_cost_upper_usd": 0.011013
+  },
+  "statuses": [
+    {
+      "status": "completed",
+      "count": 47
+    }
+  ],
+  "originalZipSha256": "4cad278ecd39267d7fb6fa874d5d6a3164df7bd8674c6ded30d432d49ff9ba01",
+  "packageLockSha256": "efdcf957b32df55498de1b1259c477ea8f0507d18cdaa81771f43fd0b5a62472",
+  "notes": "Ledger is aggregate of original study and two regression replays. Estimated cost at peak rates, not billing receipt. No provider calls from deterministic API/E2E checks."
+}
